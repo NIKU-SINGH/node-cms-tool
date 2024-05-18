@@ -8,8 +8,16 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     # ports:
     #   - "5432:5432"
+     networks:
+      - db
+
   app:
     image: node-cms-app
     ports: 
       - 8080:8080
-
+     networks:
+      - db
+      
+networks:
+  db:
+    driver: bridge

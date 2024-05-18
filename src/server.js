@@ -5,9 +5,9 @@ import dotenv from 'dotenv';
 import {connectToDatabase} from "./connectors/db.js";
 
 // Routes
-import entityRoute from "./routes/entity.js";
+import tableRoute from "./routes/table.js";
 import entryRoute from "./routes/entry.js";
-import userRoute from "./routes/users.js";
+// import userRoute from "./routes/users.js";
 
 dotenv.config();
 const app = express();
@@ -22,9 +22,13 @@ const HOST = "0.0.0.0";
 // Connectiong to Database
 connectToDatabase();
 
-app.use("/api/v1/entity", entityRoute);
+app.use("/healthcheck", (req, res) => {
+    res.send(`Ek dum mast chal rela hain bhai`);
+  });
+  
+app.use("/api/v1/table", tableRoute);
 app.use("/api/v1/entry", entryRoute);
-app.use("/api/v1/users",userRoute);
+// app.use("/api/v1/users",userRoute);
 
 
 app.listen(PORT, () => {

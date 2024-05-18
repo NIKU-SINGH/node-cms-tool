@@ -1,24 +1,29 @@
-import { Sequelize } from "sequelize";
-import {sequelize as db} from '../connectors/db.js';
+// import { DataTypes, Sequelize } from "sequelize";
+// import {sequelize as db} from '../connectors/db.js';
 
-const User = db.define('user',{
-    id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    name: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    email: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    password: {
-        type: Sequelize.STRING,
-        allowNull: false
-    }
-})
+// const User = db.define('User',{
+//     id: {
+//         type: DataTypes.UUID,
+//         defaultValue: DataTypes.UUIDV4,
+//         primaryKey: true
+//     },
+//     name: {
+//         type: DataTypes.STRING,
+//         allowNull: false
+//     },
+//     email: {
+//         type: DataTypes.STRING,
+//         allowNull: false
+//     },
+//     password: {
+//         type: DataTypes.STRING,
+//         allowNull: false
+//     }
+// },{
+//     tableName: 'test',
+//     timestamps: true
+// })
 
-export default User;
+// // db.sync({force: true})
+
+// export default User;
