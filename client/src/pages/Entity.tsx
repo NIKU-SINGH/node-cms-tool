@@ -32,6 +32,7 @@ function Entity() {
   };
 
   const updateField = (id: number, newData: { name: string; type: string }) => {
+    console.log("id is",id,newData)
     setFields(
       fields.map((field) =>
         field.id === id
@@ -95,7 +96,7 @@ function Entity() {
           <FormField
             key={field.id}
             id={field.id}
-            onChange={() => updateField(id, newData)}
+            onChange={updateField}
             onDelete={() => deleteField(field.id)}
           />
         ))}
