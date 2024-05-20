@@ -8,6 +8,10 @@ import {
 
 const router = express.Router();
 
+// API Check
+router.use("/healthcheck", (req, res) => {
+    res.send(`APIs are running smoothly`);
+  });
 router.post("/create", createTable);
 router.get("/getAll", getAllTables);
 router.get("/:name", getTableDetails);

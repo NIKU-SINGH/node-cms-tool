@@ -15,7 +15,7 @@ const createNewTable = async (name, fields) => {
   const modelAttributes = {};
   for (const [fieldName, fieldType] of Object.entries(fields)) {
     modelAttributes[fieldName] = {
-      type: typeMapping[fieldType] || DataTypes.STRING,
+      type: typeMapping[fieldType],
       allowNull: false,
     };
   }
@@ -53,7 +53,7 @@ const getAllTables = async (req, res) => {
 
     res.status(200).json({ tables });
   } catch (error) {
-    console.error("Error fetching table names:", error);
+    logger.error(`Error fetching table names:${error}`);
     res.status(500).json({ error: "Failed to retrieve table names" });
   }
 };
@@ -67,7 +67,7 @@ const getTableDetails = async (req, res) => {
 
     res.status(200).json({ tableName, tableDetails });
   } catch (error) {
-    console.error("Error fetching table details:", error);
+    logger.error(`Error fetching table details: ${error}`);
     res.status(500).json({ error: "Failed to retrieve table details" });
   }
 };
@@ -82,7 +82,7 @@ const deleteTable = async (req, res) => {
       .status(200)
       .json({ message: `Table ${tableName} deleted successfully` });
   } catch (error) {
-    console.error("Error deleting table:", error);
+    logger.error(`Error deleting table: ${error}`);
     res.status(500).json({ error: "Failed to delete table" });
   }
 };

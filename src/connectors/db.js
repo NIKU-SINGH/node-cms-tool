@@ -1,4 +1,3 @@
-
 import { Sequelize } from "sequelize";
 import logger from "../utils/logger.js";
 
@@ -6,9 +5,9 @@ const sequelize = new Sequelize(
   "postgres",
   "postgres", // "username",
   "password", // "password",
-  {   
-    host : "0.0.0.0",
-    dialect : "postgres",
+  {
+    host: "db",
+    dialect: "postgres",
   }
 );
 
@@ -18,8 +17,8 @@ const connectToDatabase = async () => {
     logger.info("Connection to Database has been established successfully.");
     return sequelize;
   } catch (error) {
-    logger.info("Unable to connect to the database:", error);
+    logger.info(`Unable to connect to the database: ${error}`);
   }
 };
 
-export  {sequelize, connectToDatabase};
+export { sequelize, connectToDatabase };
